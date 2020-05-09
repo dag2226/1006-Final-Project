@@ -6,7 +6,7 @@ Created on Tue Apr 21 14:57:17 2020
 """
 
 #import statements
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 
 #Flask app variable
 app = Flask(__name__)
@@ -24,7 +24,14 @@ def page1():
 @app.route("/page2.html")
 def page2():
     return render_template("page2.html")
+@app.route("/me.jpg")
+def showSelife():
+    return render_template("/static.me.jpg")
+@app.route("/reddit.com")
+def goToReddit():
+    return redirect("http://www.reddit.com")
 
+#http://127.0.0.1:5000/
 #start the server
 if __name__ == "__main__":
     app.run()
